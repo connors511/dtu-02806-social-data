@@ -1,6 +1,7 @@
 import tornado.ioloop
 import tornado.web
 import json
+import os
 from import_data import reddit_info
 
 class DataHandler(tornado.web.RequestHandler):
@@ -23,7 +24,8 @@ class WordHandler(tornado.web.RequestHandler):
 application = tornado.web.Application([
         (r"/data", DataHandler),
         (r"/score", ScoringHandler),
-        (r"/words", WordHandler)
+        (r"/words", WordHandler),
+        (r"/(.*)", tornado.web.StaticFileHandler, { 'path': os.path.join(os.getcwd(), 'app') })
 ])
 
 if __name__ == "__main__":
