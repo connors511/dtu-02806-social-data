@@ -64,7 +64,7 @@ def reddit_info(limit):
 
 		y_score = ["None"] * count
 		
-		authorNames =["None"] * count
+		authorName =["None"] * count
 		subredditName = ["None"] * count
 	else:
 		X = np.empty([limit, len(attributeNames)])
