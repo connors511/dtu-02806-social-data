@@ -25,6 +25,7 @@ application = tornado.web.Application([
         (r"/data", DataHandler),
         (r"/score", ScoringHandler),
         (r"/words", WordHandler),
+        (r"/bower_components/(.*)", tornado.web.StaticFileHandler, { 'path': os.path.join(os.getcwd(), 'bower_components') }),
         (r"/(.*)", tornado.web.StaticFileHandler, { 'path': os.path.join(os.getcwd(), 'app') })
 ])
 
