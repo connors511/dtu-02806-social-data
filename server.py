@@ -20,14 +20,14 @@ class ScoringHandler(tornado.web.RequestHandler):
 	def post(self):
 		data = json.loads(self.request.body.decode('utf-8'))
 
-		self.set_header('Content-Type', 'application/json')
-		self.set_header('Access-Control-Allow-Origin', '*')
 
 		d = datetime.utcnow()
 		unixtime = calendar.timegm(d.utctimetuple())
 		score = classScore(data["comment"], data["username"], unixtime, data["threadscore"], data["external"], clfrand)
 
-		self.write("Hello, world: " + score)
+		self.set_header('Content-Type', 'application/json')
+		self.set_header('Access-Control-Allow-Origin', '*')
+		self.write(json.dumps({prediction: score}))
 
 class WordHandler(tornado.web.RequestHandler):
 	def get(self):
