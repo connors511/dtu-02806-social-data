@@ -20,8 +20,8 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 			pass
 
 	attributeNames = ["comment_length", "sentiment_Score"
-						  "Author_name_length", "UCT Timestamp", "time of day", "Day of week",
-						  "Hour of day", "Thread Score", "External Link"]
+						 "Author_name_length", "time of day", "Day of week",
+						"Hour of day", "Thread Score", "External Link"]
 
 	X_input = np.empty([1, len(attributeNames)+1])
 
