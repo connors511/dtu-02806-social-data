@@ -64,7 +64,7 @@ redditApp.controller('RedditCtrl', function ($scope, $http, $location, $log) {
 				external: data.external,
 				username: data.username,
 				threadscore: data.threadscore,
-				score: res.prediction
+				score: res.prediction.replace(/[\[\]]/g,'')
 			});
 
 		}).error(function(data) {

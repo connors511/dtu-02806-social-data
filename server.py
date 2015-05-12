@@ -25,9 +25,9 @@ class ScoringHandler(tornado.web.RequestHandler):
 		unixtime = calendar.timegm(d.utctimetuple())
 		score = classScore(data["comment"], data["username"], unixtime, data["threadscore"], data["external"], clfrand)
 
-		self.set_header('Content-Type', 'application/json')
+		self.set_header('Content-Type', 'text/plain')
 		self.set_header('Access-Control-Allow-Origin', '*')
-		self.write(score)
+		self.write(str(score))
 
 class WordHandler(tornado.web.RequestHandler):
 	def get(self):
