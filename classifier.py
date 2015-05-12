@@ -50,7 +50,7 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 	else:
 		X_input[0,4] = 5 # Late evening to night
 
-	X_input[0,5] = datetime.datetime.utcfromtimestamp(X_input[0,4]-19800).weekday()
+	X_input[0,5] = datetime.datetime.utcfromtimestamp(UCT_Time-19800).weekday()
 
 	X_input[0,6] = tempTime+5.5
 
