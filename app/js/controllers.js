@@ -74,7 +74,7 @@ redditApp.controller('RedditCtrl', function ($scope, $http, $location, $log) {
 
 		$scope.try = {
 			comment: '',
-			external: 'Yes',
+			external: 1,
 			username: '',
 			score: 0
 		};

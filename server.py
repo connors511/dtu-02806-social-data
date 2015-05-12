@@ -27,7 +27,7 @@ class ScoringHandler(tornado.web.RequestHandler):
 
 		self.set_header('Content-Type', 'application/json')
 		self.set_header('Access-Control-Allow-Origin', '*')
-		self.write(json.dumps({prediction: score}))
+		self.write(json.dumps({"prediction": score}))
 
 class WordHandler(tornado.web.RequestHandler):
 	def get(self):

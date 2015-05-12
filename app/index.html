@@ -627,9 +627,9 @@
             <div class="pricing-content">
               <ul class="list-unstyled">
                 <li ng-if="!scores">You havent tested any comments yet.</li>
-                <li ng-repeat="score in tries"><i class="fa fa-circle"></i> {{score.comment}}
+                <li ng-repeat="score in tries"><i class="fa fa-circle"></i><em>{{score.username}}</em>: {{score.comment}}
                   <ul>
-                    <li>{{score.score}}</li>
+                    <li>Posted in thread with score {{score.threadscore}}. <em>Prediction:</em> {{score.score == 1 ? '> 5' : '< 5'}}</li>
                   </ul>
                 </li>
               </ul>
