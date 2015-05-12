@@ -4,6 +4,7 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 	import csv
 	import datetime
 	import numpy as np
+	import os
 	#from sklearn.ensemble import RandomForestClassifier
 
 	ANEW_words = {}
