@@ -73,7 +73,7 @@ if __name__ == "__main__":
 			y_binned[i] = 1
 
 	# Optimal model
-	clfrand = RandomForestClassifier(n_estimators = 400 , max_features=7, bootstrap=True, oob_score=True)
+	clfrand = RandomForestClassifier(n_estimators = 400 , max_features=5, bootstrap=True, oob_score=True)
 	clfrand.fit(X_shave, y_binned)
 	print("Built in " + str(datetime.now()-startTime))
 
