@@ -1,10 +1,10 @@
 def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, model): #comment?
 
+	import os
 	AFINN_path = os.getcwd() + '/AFINN/AFINN-111form.csv'
 	import csv
 	import datetime
 	import numpy as np
-	import os
 	#from sklearn.ensemble import RandomForestClassifier
 
 	ANEW_words = {}
@@ -34,7 +34,7 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 
 	X_input[0,3] = UCT_Time
 
-	tempTime = datetime.datetime.utcfromtimestamp(X_input[0,4]).hour-5.5
+	tempTime = datetime.datetime.utcfromtimestamp(UCT_Time).hour-5.5
 	if tempTime <= 0: # roll over til cat coding 5
 		X_input[0,4] = 5
 	elif  tempTime <= 4: # Early morning
