@@ -27,7 +27,7 @@ class ScoringHandler(tornado.web.RequestHandler):
 
 		self.set_header('Content-Type', 'application/json')
 		self.set_header('Access-Control-Allow-Origin', '*')
-		self.write(json.dumps({"prediction": score}))
+		self.write(score)
 
 class WordHandler(tornado.web.RequestHandler):
 	def get(self):
@@ -65,7 +65,7 @@ if __name__ == "__main__":
 	# Shave off to fit with stuff aviable at page
 	X_shave = np.empty_like(X)
 	X_shave[:] = X # Deep copy
-	X_shave = np.delete(X, np.c_[[0,1,2,5,7,8]], 1)
+	X_shave = np.delete(X, np.c_[[0,1,2,5,7,8,14,15,16]], 1)
 	print("Max X_shave: " + str(max(X_shave[:,1])))
 
 	y_binned = [0] * len(y_score)
