@@ -64,6 +64,7 @@ if __name__ == "__main__":
 	startTime = datetime.now()
 	# Shave off to fit with stuff aviable at page
 	X_shave = np.delete(X, np.c_[[0,1,2,5,7,8,14,15,16]], 1)
+	print("Max X_shave: " + str(max(X_shave[:,1])))
 
 	y_binned = [0] * len(y_score)
 	for i in range(len(y_score)):
@@ -76,6 +77,7 @@ if __name__ == "__main__":
 	clfrand = RandomForestClassifier(n_estimators = 400 , max_features=5, bootstrap=True, oob_score=True)
 	clfrand.fit(X_shave, y_binned)
 	print("Built in " + str(datetime.now()-startTime))
+
 
 	print("Server listening")
 	application.listen(8888)
