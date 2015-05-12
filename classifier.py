@@ -32,31 +32,31 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 
 	X_input[0,2] = len(Author_Name) # Author_Name_Length
 
-	X_input[0,3] = UCT_Time
+	# X_input[0,3] = UCT_Time
 
 	tempTime = datetime.datetime.utcfromtimestamp(UCT_Time).hour-5.5
 	if tempTime <= 0: # roll over til cat coding 5
-		X_input[0,4] = 5
+		X_input[0,3] = 5
 	elif  tempTime <= 4: # Early morning
-		X_input[0,4] = 0
+		X_input[0,3] = 0
 	elif tempTime <= 8: # morning to middle of day and not early
-		X_input[0,4] = 1
+		X_input[0,3] = 1
 	elif tempTime <= 12: # morning to middle of day
-		X_input[0,4] = 2
+		X_input[0,3] = 2
 	elif tempTime <= 16: # Late afternoon
-		X_input[0,4] = 3
+		X_input[0,3] = 3
 	elif tempTime <= 20: # Early eevening
-		X_input[0,4] = 4
+		X_input[0,3] = 4
 	else:
-		X_input[0,4] = 5 # Late evening to night
+		X_input[0,3] = 5 # Late evening to night
 
-	X_input[0,5] = datetime.datetime.utcfromtimestamp(UCT_Time-19800).weekday()
+	X_input[0,4] = datetime.datetime.utcfromtimestamp(UCT_Time-19800).weekday()
 
-	X_input[0,6] = tempTime+5.5
+	X_input[0,5] = tempTime+5.5
 
-	X_input[0,7] = Thread_Score
+	X_input[0,6] = Thread_Score
 
-	X_input[0,8] = External_link # 0 or 1
+	X_input[0,7] = External_link # 0 or 1
 
 	prediction = model.predict(X_input)
 	return prediction
