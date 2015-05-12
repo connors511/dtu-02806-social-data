@@ -63,6 +63,8 @@ if __name__ == "__main__":
 	print("Building predictor")
 	startTime = datetime.now()
 	# Shave off to fit with stuff aviable at page
+	X_shave = np.empty_like(X)
+	X_shave[:] = X # Deep copy
 	X_shave = np.delete(X, np.c_[[0,1,2,5,7,8]], 1)
 	print("Max X_shave: " + str(max(X_shave[:,1])))
 
