@@ -58,7 +58,7 @@ def classScore(comment, Author_Name, UCT_Time, Thread_Score, External_link, mode
 
 	X_input[0,7] = External_link # 0 or 1
 
-	for x in range(0,7):
+	for x in range(0,8):
 		print("x=" + str(x) + " = " + str(X_input[0,x]))
 
 	prediction = model.predict(X_input)
